@@ -1,6 +1,6 @@
 ---
 name: PathClaw
-description: Use China Wulang (华银康) Group PathClaw for pan-cancer prediction on pathology slides. The workflow includes: (1) obtain authentication token from login API; (2) start diagnosis task using slide_file; (3) retrieve diagnosis results. Trigger phrases: "pathology diagnosis", "PathClaw", "病理切片诊断", etc. **Note**: User must provide the pathology slide file path (e.g., `C:\path\to\slide.svs`). If not provided, ask the user to supply it.
+description: "Use China Wulang (华银康) Group PathClaw for pan-cancer prediction on pathology slides. The workflow includes: (1) obtain authentication token from login API; (2) start diagnosis task using slide_file; (3) retrieve diagnosis results. Trigger phrases: \"pathology diagnosis\", \"PathClaw\", \"病理切片诊断\", etc. **Note**: User must provide the pathology slide file path (e.g., `C:\\path\\to\\slide.svs`). If not provided, ask the user to supply it."
 ---
 
 ## Overview
