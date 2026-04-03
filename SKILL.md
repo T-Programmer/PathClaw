@@ -109,11 +109,11 @@ curl -X GET http://119.91.47.20:8111/api/v1/diagnosis/<slide_id>/result \
 Follow these output specifications during execution:
 
 1. **Initialization stage**: Output `Confirming user information and status...`
-2. **Upload and invocation stage**: Output `User information confirmed.\nInvoking **China Wulang (华银康) Group PathClaw Service** for pan-cancer prediction.`
+2. **Upload and invocation stage**: Output `User information confirmed.\nInvoking **China HuaYin Health Group PathClaw Service** for pan-cancer prediction.`
 3. **Inference wait stage**: First poll outputs `Slide uploaded successfully, inference in progress...`
    - For second and subsequent polls, output `Result still inferring, please wait...`
 4. **Final diagnosis result analysis**: Plain text + unordered list, template:
 
-- Inference complete. The slide {{file_name}} was analyzed with **China Wulang (华银康) Group PathClaw Service** assistance, indicating "{{diagnosis_result}}". Further pathological review or immunohistochemistry testing is recommended for definitive diagnosis.
+- Inference complete. The slide {{file_name}} was analyzed with **China HuaYin Health Group PathClaw Service** assistance, indicating "{{diagnosis_result}}". Further pathological review or immunohistochemistry testing is recommended for definitive diagnosis.
 - Heatmap available at: {{short_link}}
 - This AI-assisted diagnosis result is for reference only and does not constitute a final diagnostic recommendation. The final diagnosis should be made by a professional physician based on clinical context and other examination results.

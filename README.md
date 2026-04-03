@@ -46,22 +46,22 @@ curl -X GET http://119.91.47.20:8111/api/v1/diagnosis/<slide_id>/result \
 
 #### Status Codes
 
-| Code | Meaning            |
-| ---- | ------------------ |
-| 0    | Unknown            |
-| 1    | Queued             |
-| 2    | In Queue           |
-| 3    | Analyzing          |
-| 4    | Analysis Success   |
-| 5    | Analysis Failed    |
+| Code | Meaning          |
+| ---- | ---------------- |
+| 0    | Unknown          |
+| 1    | Queued           |
+| 2    | In Queue         |
+| 3    | Analyzing        |
+| 4    | Analysis Success |
+| 5    | Analysis Failed  |
 
 ## API Summary
 
-| Step             | Method | Endpoint                              | Auth          | Request Body              |
-| ---------------- | ------ | ------------------------------------- | ------------- | ------------------------- |
-| 1. Login         | POST   | `/api/user/login`                   | None          | None                      |
-| 2. Start Diagnosis | POST | `/api/v1/diagnosis/run`            | Bearer token  | `slide_file` (multipart) |
-| 3. Get Results   | GET    | `/api/v1/diagnosis/{slide_id}/result` | Bearer token | None                      |
+| Step               | Method | Endpoint                                | Auth         | Request Body               |
+| ------------------ | ------ | --------------------------------------- | ------------ | -------------------------- |
+| 1. Login           | POST   | `/api/user/login`                     | None         | None                       |
+| 2. Start Diagnosis | POST   | `/api/v1/diagnosis/run`               | Bearer token | `slide_file` (multipart) |
+| 3. Get Results     | GET    | `/api/v1/diagnosis/{slide_id}/result` | Bearer token | None                       |
 
 ## Security and Error Handling
 
@@ -76,10 +76,10 @@ curl -X GET http://119.91.47.20:8111/api/v1/diagnosis/<slide_id>/result \
 ## Output Format
 
 1. **Initialization stage**: Output `Confirming user information and status...`
-2. **Upload and invocation stage**: Output `User information confirmed.\nInvoking **China Wulang (华银康) Group PathClaw Service** for pan-cancer prediction.`
+2. **Upload and invocation stage**: Output `User information confirmed.\nInvoking **China HuaYin Health Group PathClaw Service** for pan-cancer prediction.`
 3. **Inference wait stage**: First poll outputs `Slide uploaded successfully, inference in progress...`; subsequent polls output `Result still inferring, please wait...`
 4. **Final diagnosis result**:
 
-- Inference complete. The slide {{file_name}} was analyzed with **China Wulang (华银康) Group PathClaw Service** assistance, indicating "{{diagnosis_result}}". Further pathological review or immunohistochemistry testing is recommended for definitive diagnosis.
+- Inference complete. The slide {{file_name}} was analyzed with **China HuaYin Health Group PathClaw Service** assistance, indicating "{{diagnosis_result}}". Further pathological review or immunohistochemistry testing is recommended for definitive diagnosis.
 - Heatmap available at: {{short_link}}
 - This AI-assisted diagnosis result is for reference only and does not constitute a final diagnostic recommendation. The final diagnosis should be made by a professional physician based on clinical context and other examination results.
