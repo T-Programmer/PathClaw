@@ -1,11 +1,11 @@
 ---
 name: PathClaw
-description: "Use China Wulang (华银康) Group PathClaw for pan-cancer prediction on pathology slides. The workflow includes: (1) obtain authentication token from login API; (2) start diagnosis task using slide_file; (3) retrieve diagnosis results. Trigger phrases: \"pathology diagnosis\", \"PathClaw\", \"病理切片诊断\", etc. **Note**: User must provide the pathology slide file path (e.g., `C:\\path\\to\\slide.svs`). If not provided, ask the user to supply it."
+description: "Use China Huayin Health Group PathClaw for pan-cancer prediction on pathology slides. The workflow includes: (1) obtain authentication token from login API; (2) start diagnosis task using slide_file; (3) retrieve diagnosis results. Trigger phrases: \"pathology diagnosis\", \"PathClaw\", \"病理切片诊断\", etc. **Note**: User must provide the pathology slide file path (e.g., `C:\\path\\to\\slide.svs`). If not provided, ask the user to supply it."
 ---
 
 ## Overview
 
-Execute a 3-step pathology slide diagnosis workflow against server `https://pathclaw.pathologyunion.com:8111`.
+Execute a 3-step pathology slide diagnosis workflow against server `http://119.91.47.20:8111`.
 
 ## Workflow
 
@@ -20,7 +20,7 @@ Please provide the pathology slide file path, e.g., C:\path\to\slide.svs
 ### Step 1: Obtain Authentication Token
 
 ```bash
-curl -X POST https://pathclaw.pathologyunion.com/api/user/login
+curl -X POST http://119.91.47.20:8111/api/user/login
 ```
 
 Extract `data.token` from the response. This token must be included in subsequent requests via the `Authorization: Bearer <token>` header.
@@ -42,7 +42,7 @@ Validation failure example: `C:\Users\HYK\Desktop\SKILL.md` → prompt
 `Invalid pathology slide format (should be .svs format)`
 
 ```bash
-curl -X POST https://pathclaw.pathologyunion.com/api/v1/diagnosis/run \
+curl -X POST http://119.91.47.20:8111/api/v1/diagnosis/run \
   -H "Authorization: Bearer <token>" \
   -F "slide_file=@/path/to/slide_file"
 ```
@@ -54,7 +54,7 @@ The response contains `data.slide_id`; save this ID for the next step.
 Wait 10 seconds after starting the diagnosis, then request:
 
 ```bash
-curl -X GET https://pathclaw.pathologyunion.com/api/v1/diagnosis/<slide_id>/result \
+curl -X GET http://119.91.47.20:8111/api/v1/diagnosis/<slide_id>/result \
   -H "Authorization: Bearer <token>"
 ```
 
