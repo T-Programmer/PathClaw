@@ -11,7 +11,7 @@ User must provide the pathology slide file path (.svs format). Example: `C:\path
 ### Step 1: Obtain Authentication Token
 
 ```bash
-curl -X POST http://119.91.47.20:8111/api/user/login
+curl -X POST https://pathclaw.pathologyunion.com/api/user/login
 ```
 
 Extract `data.token` from the response. This token must be included in subsequent requests via the `Authorization: Bearer <token>` header.
@@ -28,7 +28,7 @@ Extract `data.token` from the response. This token must be included in subsequen
 4. File extension must be `.svs` (case-insensitive)
 
 ```bash
-curl -X POST http://119.91.47.20:8111/api/v1/diagnosis/run \
+curl -X POST https://pathclaw.pathologyunion.com/api/v1/diagnosis/run \
   -H "Authorization: Bearer <token>" \
   -F "slide_file=@/path/to/slide_file"
 ```
@@ -40,7 +40,7 @@ The response contains `data.slide_id`; save this ID for the next step.
 Wait 10 seconds after starting the diagnosis, then request:
 
 ```bash
-curl -X GET http://119.91.47.20:8111/api/v1/diagnosis/<slide_id>/result \
+curl -X GET https://pathclaw.pathologyunion.com/api/v1/diagnosis/<slide_id>/result \
   -H "Authorization: Bearer <token>"
 ```
 
